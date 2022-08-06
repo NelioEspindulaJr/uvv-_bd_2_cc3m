@@ -29,20 +29,16 @@
      <remarks>Nome do criador do anime</remarks>
     </column>
     <column id="COL7" populated="true" UUID="a458f433-47c8-4bc0-91ac-76e01cfe172b" autoIncrement="false" autoIncrementSequenceName="anime_data_lancamento_seq" defaultValue="" name="data_lancamento" nullable="0" physicalName="data_lancamento" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
-     <remarks>Data de lançamento do Anime.
-</remarks>
+     <remarks>Data de lançamento do Anime.</remarks>
     </column>
     <column id="COL8" populated="true" UUID="051d50d9-30eb-4990-a002-81580cf4b1cb" autoIncrement="false" autoIncrementSequenceName="anime_data_encerramento_seq" defaultValue="" name="data_encerramento" nullable="1" physicalName="data_encerramento" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
-     <remarks>Data de encerramento do anime. Campo pode ser nulo pois existem animes que ainda não encerraram
-</remarks>
+     <remarks>Data de encerramento do anime. Campo pode ser nulo pois existem animes que ainda não encerraram</remarks>
     </column>
     <column id="COL9" populated="true" UUID="ccd443d1-67c8-4c87-b619-ac1b4598ec67" autoIncrement="false" autoIncrementSequenceName="anime_total_episodios_seq" defaultValue="" name="total_episodios" nullable="0" physicalName="total_episodios" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
-     <remarks>Quantidade total de episódios do anime lançados até o momento.
-</remarks>
+     <remarks>Quantidade total de episódios do anime lançados até o momento.</remarks>
     </column>
     <column id="COL10" populated="true" UUID="df22b232-d170-4ad5-b411-4a6f3b6fe38c" autoIncrement="false" autoIncrementSequenceName="anime_avaliacao_seq" defaultValue="" name="avaliacao" nullable="0" physicalName="avaliacao" precision="5" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
-     <remarks>Nota geral das avaliações feitas por usuários que viram aquele anime
-</remarks>
+     <remarks>Nota geral das avaliações feitas por usuários que viram aquele anime</remarks>
     </column>
     <column id="COL11" populated="true" UUID="46265840-3053-455a-ab36-3b66666646c6" autoIncrement="false" autoIncrementSequenceName="anime_status_seq" defaultValue="" name="status" nullable="0" physicalName="status" precision="15" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks>Status atual do anime em relação ao lançamento de episódios (se já finalizou, em lançamento, em hiato, etc)</remarks>
@@ -62,96 +58,105 @@
     <index id="IDX14" populated="true" UUID="df2f917a-b6b8-4adf-909a-2449b7d40658" clustered="false" name="id" physicalName="id" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC15" populated="true" UUID="06d60885-25d7-4e9a-a585-ef341ec9ab80" ascendingOrDescending="UNSPECIFIED" column-ref="COL2" name="anime_id" physicalName="anime_id" />
     </index>
+    <index id="IDX16" populated="true" UUID="f659346d-38a7-4f57-9c11-499d0386a57a" clustered="false" name="anime_idx" physicalName="anime_idx" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC17" populated="true" UUID="3acf102a-9677-4dc8-8f1c-623667dae447" ascendingOrDescending="UNSPECIFIED" column-ref="COL2" name="anime_id" physicalName="anime_id" />
+    </index>
    </folder>
   </table>
-  <table id="TAB16" populated="true" UUID="a2071829-9c44-4d46-b480-6e8d6f0ff050" name="estudio" objectType="TABLE" physicalName="estudio" >
+  <table id="TAB18" populated="true" UUID="a2071829-9c44-4d46-b480-6e8d6f0ff050" name="estudio" objectType="TABLE" physicalName="estudio" >
    <remarks></remarks>
-   <folder id="FOLTAB161" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL17" populated="true" UUID="8061981a-8917-49bf-a062-9e06bd0aa0d6" autoIncrement="true" autoIncrementSequenceName="estudio_estudio_id_seq" defaultValue="" name="estudio_id" nullable="0" physicalName="estudio_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+   <folder id="FOLTAB181" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL19" populated="true" UUID="8061981a-8917-49bf-a062-9e06bd0aa0d6" autoIncrement="false" autoIncrementSequenceName="estudio_estudio_id_seq" defaultValue="" name="estudio_id" nullable="0" physicalName="estudio_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks>Código identificador do estudio</remarks>
     </column>
-    <column id="COL18" populated="true" UUID="1e640b53-b8dc-47d3-95dc-e94ad48af449" autoIncrement="false" autoIncrementSequenceName="estudio_name_seq" defaultValue="" name="name" nullable="0" physicalName="name" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL20" populated="true" UUID="1e640b53-b8dc-47d3-95dc-e94ad48af449" autoIncrement="false" autoIncrementSequenceName="estudio_name_seq" defaultValue="" name="name" nullable="0" physicalName="name" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks>Nome do estudio</remarks>
     </column>
     </folder>
-    <folder id="FOLTAB163" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    <folder id="FOLTAB183" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
     </folder>
-    <folder id="FOLTAB162" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    <folder id="FOLTAB182" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
-    <folder id="FOLTAB164" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX19" populated="true" UUID="07bbfd30-bda3-4031-a47d-553dd2fbe94d" clustered="false" name="id" physicalName="id" primaryKeyIndex="true" unique="false" >
-     <index-column id="IDC20" populated="true" UUID="f1048d1c-9189-4788-b990-79030a7c5bd0" ascendingOrDescending="UNSPECIFIED" column-ref="COL17" name="estudio_id" physicalName="estudio_id" />
+    <folder id="FOLTAB184" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX21" populated="true" UUID="07bbfd30-bda3-4031-a47d-553dd2fbe94d" clustered="false" name="id" physicalName="id" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC22" populated="true" UUID="f1048d1c-9189-4788-b990-79030a7c5bd0" ascendingOrDescending="UNSPECIFIED" column-ref="COL19" name="estudio_id" physicalName="estudio_id" />
+    </index>
+    <index id="IDX23" populated="true" UUID="8e44b593-5da6-4def-b09a-a0e45a6c8ef5" clustered="false" name="estudio_idx" physicalName="estudio_idx" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC24" populated="true" UUID="3c722361-ed89-4082-9181-748654b963b3" ascendingOrDescending="UNSPECIFIED" column-ref="COL19" name="estudio_id" physicalName="estudio_id" />
     </index>
    </folder>
   </table>
-  <table id="TAB21" populated="true" UUID="5c6d8781-279c-47b9-a22a-70339b3d0e40" name="personagens" objectType="TABLE" physicalName="personagens" >
+  <table id="TAB25" populated="true" UUID="5c6d8781-279c-47b9-a22a-70339b3d0e40" name="personagens" objectType="TABLE" physicalName="personagens" >
    <remarks>Tabela que armazena as personagens principais dos animes.</remarks>
-   <folder id="FOLTAB211" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL22" populated="true" UUID="5c3782b3-9582-4711-89bd-7fc1ddf0b2c7" autoIncrement="false" autoIncrementSequenceName="personagens_personagens_id_seq" defaultValue="" name="personagens_id" nullable="0" physicalName="personagens_id" precision="0" primaryKeySeq="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
-     <remarks>Código identificador do personagem
-</remarks>
+   <folder id="FOLTAB251" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL26" populated="true" UUID="5c3782b3-9582-4711-89bd-7fc1ddf0b2c7" autoIncrement="false" autoIncrementSequenceName="personagens_personagem_id_seq" defaultValue="" name="personagem_id" nullable="0" physicalName="personagem_id" precision="0" primaryKeySeq="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>Código identificador do personagem</remarks>
     </column>
-    <column id="COL23" populated="true" UUID="8a44e730-899e-472f-8dcc-0d4aecec8299" autoIncrement="false" autoIncrementSequenceName="personagens_anime_ide_seq" defaultValue="" name="anime_id" nullable="0" physicalName="anime_ide" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
-     <remarks>Foreign Key do ID do anime a qual este personagem pertence.
-</remarks>
+    <column id="COL27" populated="true" UUID="8a44e730-899e-472f-8dcc-0d4aecec8299" autoIncrement="false" autoIncrementSequenceName="personagens_anime_ide_seq" defaultValue="" name="anime_id" nullable="0" physicalName="anime_ide" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>Foreign Key do ID do anime a qual este personagem pertence.</remarks>
     </column>
-    <column id="COL24" populated="true" UUID="f55a3f94-661a-4e82-9c31-3a0598a0f1bb" autoIncrement="false" autoIncrementSequenceName="personagens_sexo_seq" defaultValue="" name="sexo" nullable="0" physicalName="sexo" precision="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL28" populated="true" UUID="f55a3f94-661a-4e82-9c31-3a0598a0f1bb" autoIncrement="false" autoIncrementSequenceName="personagens_sexo_seq" defaultValue="" name="sexo" nullable="0" physicalName="sexo" precision="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks>Gênero do Personagem. Com constraint para ser apenas &apos;F&apos; ou &apos;M&apos;.</remarks>
     </column>
-    <column id="COL25" populated="true" UUID="249a7ce0-2008-4a76-8b26-201a1594accf" autoIncrement="false" autoIncrementSequenceName="personagens_nome_seq" defaultValue="" name="nome" nullable="0" physicalName="nome" precision="30" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL29" populated="true" UUID="249a7ce0-2008-4a76-8b26-201a1594accf" autoIncrement="false" autoIncrementSequenceName="personagens_nome_seq" defaultValue="" name="nome" nullable="0" physicalName="nome" precision="30" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks>Nome do Personagem.</remarks>
     </column>
     </folder>
-    <folder id="FOLTAB213" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    <folder id="FOLTAB253" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
     </folder>
-    <folder id="FOLTAB212" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    <folder id="FOLTAB252" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
-    <folder id="FOLTAB214" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX26" populated="true" UUID="1208a934-5bfc-4fb0-97f1-92d48633d237" clustered="false" name="id" physicalName="id" primaryKeyIndex="true" unique="false" >
-     <index-column id="IDC27" populated="true" UUID="a1dacd49-125b-4d8e-84df-992314e1a030" ascendingOrDescending="UNSPECIFIED" column-ref="COL22" name="personagens_id" physicalName="personagens_id" />
+    <folder id="FOLTAB254" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX30" populated="true" UUID="1208a934-5bfc-4fb0-97f1-92d48633d237" clustered="false" name="id" physicalName="id" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC31" populated="true" UUID="a1dacd49-125b-4d8e-84df-992314e1a030" ascendingOrDescending="UNSPECIFIED" column-ref="COL26" name="personagem_id" physicalName="personagem_id" />
+    </index>
+    <index id="IDX32" populated="true" UUID="b9851b0e-2719-4099-957d-a9895682825a" clustered="false" name="personagens_idx" physicalName="personagens_idx" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC33" populated="true" UUID="6c4d2a9e-707e-49d0-a3a4-2c3a7f68c13a" ascendingOrDescending="UNSPECIFIED" column-ref="COL26" name="personagem_id" physicalName="personagem_id" />
     </index>
    </folder>
   </table>
-  <table id="TAB28" populated="true" UUID="9e4e0e17-472e-4a50-a3fb-24ca3fff4a8d" name="autores" objectType="TABLE" physicalName="autores" >
-   <remarks>Tabela que armazena autores/criadores de animes
-</remarks>
-   <folder id="FOLTAB281" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL29" populated="true" UUID="45d5a915-9d10-4ebc-bf3d-8d979948a26f" autoIncrement="true" autoIncrementSequenceName="autores_autores_id_seq" defaultValue="" name="autores_id" nullable="0" physicalName="autores_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+  <table id="TAB34" populated="true" UUID="9e4e0e17-472e-4a50-a3fb-24ca3fff4a8d" name="autores" objectType="TABLE" physicalName="autores" >
+   <remarks>Tabela que armazena autores/criadores de animes</remarks>
+   <folder id="FOLTAB341" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL35" populated="true" UUID="45d5a915-9d10-4ebc-bf3d-8d979948a26f" autoIncrement="false" autoIncrementSequenceName="autores_autor_id_seq" defaultValue="" name="autor_id" nullable="0" physicalName="autor_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks>Código identificador do autor do anime.</remarks>
     </column>
-    <column id="COL30" populated="true" UUID="8f4c5bd6-6326-4776-85cd-d53467a53094" autoIncrement="false" autoIncrementSequenceName="autores_nome_seq" defaultValue="" name="nome" nullable="0" physicalName="nome" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL36" populated="true" UUID="8f4c5bd6-6326-4776-85cd-d53467a53094" autoIncrement="false" autoIncrementSequenceName="autores_nome_seq" defaultValue="" name="nome" nullable="0" physicalName="nome" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks>Nome do autor</remarks>
     </column>
-    <column id="COL31" populated="true" UUID="983efcf1-287f-4123-83ba-77fec45086dc" autoIncrement="false" autoIncrementSequenceName="autores_data_nascimento_seq" defaultValue="" name="data_nascimento" nullable="0" physicalName="data_nascimento" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+    <column id="COL37" populated="true" UUID="983efcf1-287f-4123-83ba-77fec45086dc" autoIncrement="false" autoIncrementSequenceName="autores_data_nascimento_seq" defaultValue="" name="data_nascimento" nullable="0" physicalName="data_nascimento" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
      <remarks>Data de nascimento do autor.</remarks>
     </column>
-    <column id="COL32" populated="true" UUID="019738f4-92ac-440a-a135-999e82589e9c" autoIncrement="false" autoIncrementSequenceName="autores_data_falecimento_seq" defaultValue="" name="data_falecimento" nullable="1" physicalName="data_falecimento" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL38" populated="true" UUID="019738f4-92ac-440a-a135-999e82589e9c" autoIncrement="false" autoIncrementSequenceName="autores_data_falecimento_seq" defaultValue="" name="data_falecimento" nullable="1" physicalName="data_falecimento" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks>Data de falecimento do autor.
 Pode ser vazio pois o autor pode estar vivo</remarks>
     </column>
-    <column id="COL33" populated="true" UUID="a6e7c107-11f6-4563-a465-6e9af24f2b04" autoIncrement="false" autoIncrementSequenceName="autores_sexo_seq" defaultValue="" name="sexo" nullable="0" physicalName="sexo" precision="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL39" populated="true" UUID="a6e7c107-11f6-4563-a465-6e9af24f2b04" autoIncrement="false" autoIncrementSequenceName="autores_sexo_seq" defaultValue="" name="sexo" nullable="0" physicalName="sexo" precision="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks>Gênero do autor. Com constraint para ser apenas &apos;F&apos; ou &apos;M&apos;</remarks>
     </column>
     </folder>
-    <folder id="FOLTAB283" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    <folder id="FOLTAB343" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
     </folder>
-    <folder id="FOLTAB282" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    <folder id="FOLTAB342" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
-    <folder id="FOLTAB284" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX34" populated="true" UUID="7365f862-2c1d-424b-849b-b7a7de4dc8f5" clustered="false" name="id" physicalName="id" primaryKeyIndex="true" unique="false" >
-     <index-column id="IDC35" populated="true" UUID="3e2718a3-f9f4-46d8-8737-d7a38fcbdfa6" ascendingOrDescending="UNSPECIFIED" column-ref="COL29" name="autores_id" physicalName="autores_id" />
+    <folder id="FOLTAB344" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX40" populated="true" UUID="7365f862-2c1d-424b-849b-b7a7de4dc8f5" clustered="false" name="id" physicalName="id" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC41" populated="true" UUID="3e2718a3-f9f4-46d8-8737-d7a38fcbdfa6" ascendingOrDescending="UNSPECIFIED" column-ref="COL35" name="autor_id" physicalName="autor_id" />
+    </index>
+    <index id="IDX42" populated="true" UUID="3d00c927-cb60-415e-9620-3edb097b186d" clustered="false" name="autores_idx" physicalName="autores_idx" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC43" populated="true" UUID="d983d2d3-5cf9-474c-9e79-730c10a7320f" ascendingOrDescending="UNSPECIFIED" column-ref="COL35" name="autor_id" physicalName="autor_id" />
     </index>
    </folder>
   </table>
   <relationships>
-   <relationship id="REL36" populated="true" UUID="d1691dc0-9258-48a2-8b1a-0b1ac2f2a030" deferrability="7" deleteRule="3" fk-table-ref="TAB21" fkCardinality="6" identifying="false" name="anime_personagens_fk" physicalName="anime_personagens_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP37" populated="true" UUID="0b3943a2-7ab5-4c53-9391-d807f5636b30" fk-column-ref="COL23" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
+   <relationship id="REL44" populated="true" UUID="d1691dc0-9258-48a2-8b1a-0b1ac2f2a030" deferrability="7" deleteRule="3" fk-table-ref="TAB25" fkCardinality="6" identifying="false" name="anime_personagens_fk" physicalName="anime_personagens_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP45" populated="true" UUID="0b3943a2-7ab5-4c53-9391-d807f5636b30" fk-column-ref="COL27" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
    </relationship>
-   <relationship id="REL38" populated="true" UUID="288fd238-519b-43c1-bbe2-71a8b46ab085" deferrability="7" deleteRule="3" fk-table-ref="TAB1" fkCardinality="7" identifying="true" name="estudio_anime_fk" physicalName="estudio_anime_fk" pk-table-ref="TAB16" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP39" populated="true" UUID="9f3e2ffd-b99f-4762-a407-994fddf1bf3c" fk-column-ref="COL12" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL17" />
+   <relationship id="REL46" populated="true" UUID="288fd238-519b-43c1-bbe2-71a8b46ab085" deferrability="7" deleteRule="3" fk-table-ref="TAB1" fkCardinality="7" identifying="true" name="estudio_anime_fk" physicalName="estudio_anime_fk" pk-table-ref="TAB18" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP47" populated="true" UUID="9f3e2ffd-b99f-4762-a407-994fddf1bf3c" fk-column-ref="COL12" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL19" />
    </relationship>
-   <relationship id="REL40" populated="true" UUID="d285989a-8777-40a8-bd88-bc30c1113254" deferrability="7" deleteRule="3" fk-table-ref="TAB1" fkCardinality="7" identifying="false" name="autores_anime_fk" physicalName="autores_anime_fk" pk-table-ref="TAB28" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP41" populated="true" UUID="bf2e9e92-307c-48c5-8bb0-ada8829e86f6" fk-column-ref="COL4" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL29" />
+   <relationship id="REL48" populated="true" UUID="d285989a-8777-40a8-bd88-bc30c1113254" deferrability="7" deleteRule="3" fk-table-ref="TAB1" fkCardinality="7" identifying="false" name="autores_anime_fk" physicalName="autores_anime_fk" pk-table-ref="TAB34" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP49" populated="true" UUID="bf2e9e92-307c-48c5-8bb0-ada8829e86f6" fk-column-ref="COL4" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL35" />
    </relationship>
   </relationships>
  </target-database>
@@ -159,13 +164,13 @@ Pode ser vazio pois o autor pode estar vivo</remarks>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
  <play-pen zoom="1.0" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
-  <table-pane table-ref="TAB1" x="200" y="78" bgColor="0xbfd6ff" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB16" x="201" y="391" bgColor="0xf6bcbc" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB21" x="536" y="93" bgColor="0xc8dccc" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB28" x="413" y="395" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-link relationship-ref="REL38" pkConnection="0.3888888888888889" fkConnection="0.7884615384615384" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
-  <table-link relationship-ref="REL36" pkConnection="0.12690355329949238" fkConnection="0.11764705882352941" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
-  <table-link relationship-ref="REL40" pkConnection="0.5113636363636364" fkConnection="0.3197969543147208" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="24"/>
+  <table-pane table-ref="TAB1" x="500" y="324" bgColor="0xbfd6ff" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB18" x="873" y="126" bgColor="0xf6bcbc" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB25" x="60" y="185" bgColor="0xc8dccc" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB34" x="217" y="720" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-link relationship-ref="REL46" pkConnection="0.3177083333333333" fkConnection="0.883248730964467" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="20"/>
+  <table-link relationship-ref="REL44" pkConnection="0.1319796954314721" fkConnection="0.8823529411764706" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL48" pkConnection="0.6649484536082474" fkConnection="0.3197969543147208" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="40"/>
  </play-pen>
  <critic-manager>
   <critic-grouping platformType="Generic" enabled="true">

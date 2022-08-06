@@ -47,7 +47,6 @@ CREATE SCHEMA animes
 ALTER USER "administrator"
 SET SEARCH_PATH TO animes, "\user", public;
 
-
 CREATE TABLE animes.anime (
                 anime_id INTEGER NOT NULL,
                 titulo VARCHAR(50) NOT NULL,
@@ -61,7 +60,7 @@ CREATE TABLE animes.anime (
                 status VARCHAR(15) NOT NULL,
                 estudio_id INTEGER NOT NULL,
                 sinopse VARCHAR NOT NULL,
-                CONSTRAINT pk_animes_id PRIMARY KEY (anime_id)
+                CONSTRAINT id PRIMARY KEY (anime_id)
 );
 COMMENT ON TABLE animes.anime IS 'Essa tabela contém os dados referentes ao anime';
 COMMENT ON COLUMN animes.anime.anime_id IS 'Primary Key da tabela Anime. Serve como identificador do anime.';
@@ -77,57 +76,67 @@ COMMENT ON COLUMN animes.anime.status IS 'Status atual do anime em relação ao 
 COMMENT ON COLUMN animes.anime.estudio_id IS 'Foreign Key referente ao estudio que produziu este anime.';
 COMMENT ON COLUMN animes.anime.sinopse IS 'Sinopse que resume a história e o que se passa no anime.';
 
-CREATE SEQUENCE animes.autores_autores_id_seq;
+
+CREATE UNIQUE INDEX anime_idx
+ ON animes.anime
+ ( anime_id );
+
+ CREATE TABLE animes.personagens (
+                personagem_id INTEGER NOT NULL,
+                anime_ide INTEGER NOT NULL,
+                sexo VARCHAR(1) NOT NULL,
+                nome VARCHAR(30) NOT NULL,
+                CONSTRAINT pers_pk_id PRIMARY KEY (personagem_id)
+);
+COMMENT ON TABLE animes.personagens IS 'Tabela que armazena as personagens principais dos animes.';
+COMMENT ON COLUMN animes.personagens.personagem_id IS 'Código identificador do personagem';
+COMMENT ON COLUMN animes.personagens.anime_ide IS 'Foreign Key do ID do anime a qual este personagem pertence.';
+COMMENT ON COLUMN animes.personagens.sexo IS 'Gênero do Personagem. Com constraint para ser apenas ''F'' ou ''M''.';
+COMMENT ON COLUMN animes.personagens.nome IS 'Nome do Personagem.';
+
+
+CREATE UNIQUE INDEX personagens_idx
+ ON animes.personagens
+ ( personagem_id );
+
 
 CREATE TABLE animes.autores (
-                autores_id INTEGER NOT NULL DEFAULT nextval('animes.autores_autores_id_seq'),
+                autor_id INTEGER NOT NULL,
                 nome VARCHAR(50) NOT NULL,
                 data_nascimento DATE NOT NULL,
                 data_falecimento VARCHAR,
                 sexo VARCHAR(1) NOT NULL,
-                CONSTRAINT pk_autores_id PRIMARY KEY (autores_id)
+                CONSTRAINT animes_pk_id PRIMARY KEY (autor_id)
 );
 COMMENT ON TABLE animes.autores IS 'Tabela que armazena autores/criadores de animes';
-COMMENT ON COLUMN animes.autores.autores_id IS 'Código identificador do autor do anime.';
+COMMENT ON COLUMN animes.autores.autor_id IS 'Código identificador do autor do anime.';
 COMMENT ON COLUMN animes.autores.nome IS 'Nome do autor';
 COMMENT ON COLUMN animes.autores.data_nascimento IS 'Data de nascimento do autor.';
-COMMENT ON COLUMN animes.autores.data_falecimento IS 'Data de falecimento do autor. Pode ser vazio pois o autor pode estar vivo';
+COMMENT ON COLUMN animes.autores.data_falecimento IS 'Data de falecimento do autor.
+Pode ser vazio pois o autor pode estar vivo';
 COMMENT ON COLUMN animes.autores.sexo IS 'Gênero do autor. Com constraint para ser apenas ''F'' ou ''M''';
 
-ALTER SEQUENCE animes.autores_autores_id_seq OWNED BY animes.autores.autores_id;
 
-CREATE SEQUENCE animes.estudio_estudio_id_seq;
+CREATE UNIQUE INDEX autores_idx
+ ON animes.autores
+ ( autor_id );
 
 CREATE TABLE animes.estudio (
-                estudio_id INTEGER NOT NULL DEFAULT nextval('animes.estudio_estudio_id_seq'),
+                estudio_id INTEGER NOT NULL,
                 name VARCHAR(50) NOT NULL,
-                CONSTRAINT pk_estudio_id PRIMARY KEY (estudio_id)
+                CONSTRAINT estudio_pk_id PRIMARY KEY (estudio_id)
 );
 COMMENT ON COLUMN animes.estudio.estudio_id IS 'Código identificador do estudio';
 COMMENT ON COLUMN animes.estudio.name IS 'Nome do estudio';
 
 
-ALTER SEQUENCE animes.estudio_estudio_id_seq OWNED BY animes.estudio.estudio_id;
-
-
-
-CREATE TABLE animes.personagens (
-                personagens_id INTEGER NOT NULL,
-                anime_id INTEGER NOT NULL,
-                sexo VARCHAR(1) NOT NULL,
-                nome VARCHAR(30) NOT NULL,
-                CONSTRAINT pk_personagens_id PRIMARY KEY (personagens_id)
-);
-COMMENT ON TABLE animes.personagens IS 'Tabela que armazena as personagens principais dos animes.';
-COMMENT ON COLUMN animes.personagens.personagens_id IS 'Código identificador do personagem';
-COMMENT ON COLUMN animes.personagens.anime_id IS 'Foreign Key do ID do anime a qual este personagem pertence.';
-COMMENT ON COLUMN animes.personagens.sexo IS 'Gênero do Personagem. Com constraint para ser apenas ''F'' ou ''M''.';
-COMMENT ON COLUMN animes.personagens.nome IS 'Nome do Personagem.';
-
+CREATE UNIQUE INDEX estudio_idx
+ ON animes.estudio
+ ( estudio_id );
 
 ALTER TABLE animes.anime ADD CONSTRAINT autores_anime_fk
 FOREIGN KEY (autor_id)
-REFERENCES animes.autores (autores_id)
+REFERENCES animes.autores (autor_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
@@ -140,7 +149,7 @@ ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
 ALTER TABLE animes.personagens ADD CONSTRAINT anime_personagens_fk
-FOREIGN KEY (anime_id)
+FOREIGN KEY (anime_ide)
 REFERENCES animes.anime (anime_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
