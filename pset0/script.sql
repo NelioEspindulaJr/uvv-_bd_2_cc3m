@@ -5,7 +5,8 @@ ______________________________________________________________
 |                         ‾‾‾‾‾‾‾‾‾                           |
 |    SCRIPT PARA CRIAÇÃO DO BANCO DE DADOS DO PSET0.          |
 |_____________________________________________________________|
-| Alunos:                                                     |
+| Alunos: Clicia P. de Freitas, Ícaro Araújo Lucas Zanon e    |
+| Nélio Espíndula Junior 		                      |
 | Turma: CC3M                                                 |
 | Professor: Abrantes Araújo Silva Filho                      |                                                          
  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
@@ -13,7 +14,7 @@ ______________________________________________________________
 
 DROP ROLE IF EXISTS administrator;
 DROP DATABASE IF EXISTS animesDB;
-DROP SCHEMA IF EXISTS animes CASCADE;
+DROP SCHEMA IF EXISTS animeProducao CASCADE;
 
 CREATE ROLE administrator WITH
 	LOGIN
@@ -41,116 +42,132 @@ COMMENT ON DATABASE "animesDB"
 
 \c animesDB administrator
 
-CREATE SCHEMA animes
+CREATE SCHEMA animeProducao
     AUTHORIZATION "administrator";
 
 ALTER USER "administrator"
 SET SEARCH_PATH TO animes, "\user", public;
 
-CREATE TABLE animes.anime (
-                anime_id INTEGER NOT NULL,
-                titulo VARCHAR(50) NOT NULL,
-                autor_id INTEGER NOT NULL,
-                tipo VARCHAR(10) NOT NULL,
-                criador VARCHAR(30) NOT NULL,
-                data_lancamento DATE NOT NULL,
-                data_encerramento DATE,
+
+CREATE TABLE animeProducao.genero (
+                genero_codigo INTEGER NOT NULL,
+                CONSTRAINT genero_pk PRIMARY KEY (genero_codigo)
+);
+COMMENT ON TABLE animeProducao.genero IS 'Tabela contendo os generos dos animes';
+COMMENT ON COLUMN animeProducao.genero.genero_codigo IS 'Codigo de identificação da tabela genero. PK da tabela.';
+
+
+CREATE TABLE animeProducao.personagens (
+                codigo_personagem INTEGER NOT NULL,
+                nome_personagem VARCHAR(50) NOT NULL,
+                papel VARCHAR(13) NOT NULL,
+                sexo VARCHAR(1) NOT NULL,
+                CONSTRAINT personagens_pk PRIMARY KEY (codigo_personagem)
+);
+COMMENT ON TABLE animeProducao.personagens IS 'Tabela com as informações dos personagens.';
+COMMENT ON COLUMN animeProducao.personagens.codigo_personagem IS 'Pk da tabela. Chave de identificação da tabela personagens.';
+COMMENT ON COLUMN animeProducao.personagens.nome_personagem IS 'Nome do personagem.';
+COMMENT ON COLUMN animeProducao.personagens.papel IS 'Diferencia personagens protagonistas de personagens suporte.';
+COMMENT ON COLUMN animeProducao.personagens.sexo IS 'genero do personagem.';
+
+
+CREATE TABLE animeProducao.animes (
+                codigo_anime INTEGER NOT NULL,
                 total_episodios INTEGER NOT NULL,
-                avaliacao NUMERIC(5) NOT NULL,
-                status VARCHAR(15) NOT NULL,
-                estudio_id INTEGER NOT NULL,
-                sinopse VARCHAR NOT NULL,
-                CONSTRAINT id PRIMARY KEY (anime_id)
+                obra_original VARCHAR(100) NOT NULL,
+                data_lancamento DATE NOT NULL,
+                media_nota INTEGER NOT NULL,
+                genero_codigo INTEGER NOT NULL,
+                nome VARCHAR(100) NOT NULL,
+                codigo_personagem INTEGER NOT NULL,
+                CONSTRAINT animes_pk PRIMARY KEY (codigo_anime)
 );
-COMMENT ON TABLE animes.anime IS 'Essa tabela contém os dados referentes ao anime';
-COMMENT ON COLUMN animes.anime.anime_id IS 'Primary Key da tabela Anime. Serve como identificador do anime.';
-COMMENT ON COLUMN animes.anime.titulo IS 'Contém o título do anime.';
-COMMENT ON COLUMN animes.anime.autor_id IS 'Foreign Key referente ao respectivo autor do anime.';
-COMMENT ON COLUMN animes.anime.tipo IS 'Tipo do anime (Se é um OVA, série de TV ou filme)';
-COMMENT ON COLUMN animes.anime.criador IS 'Nome do criador do anime';
-COMMENT ON COLUMN animes.anime.data_lancamento IS 'Data de lançamento do Anime.';
-COMMENT ON COLUMN animes.anime.data_encerramento IS 'Data de encerramento do anime. Campo pode ser nulo pois existem animes que ainda não encerraram';
-COMMENT ON COLUMN animes.anime.total_episodios IS 'Quantidade total de episódios do anime lançados até o momento.';
-COMMENT ON COLUMN animes.anime.avaliacao IS 'Nota geral das avaliações feitas por usuários que viram aquele anime';
-COMMENT ON COLUMN animes.anime.status IS 'Status atual do anime em relação ao lançamento de episódios (se já finalizou, em lançamento, em hiato, etc)';
-COMMENT ON COLUMN animes.anime.estudio_id IS 'Foreign Key referente ao estudio que produziu este anime.';
-COMMENT ON COLUMN animes.anime.sinopse IS 'Sinopse que resume a história e o que se passa no anime.';
+COMMENT ON TABLE animeProducao.animes IS 'Tabela que salva as informações dos animes';
+COMMENT ON COLUMN animeProducao.animes.codigo_anime IS 'PK da tabela animes. Codigo de identificação da tabela animes.';
+COMMENT ON COLUMN animeProducao.animes.total_episodios IS 'Numero total de episódios do anime.';
+COMMENT ON COLUMN animeProducao.animes.obra_original IS 'Material original do qual o anime foi adaptado.';
+COMMENT ON COLUMN animeProducao.animes.data_lancamento IS 'Data de estréia do anime.';
+COMMENT ON COLUMN animeProducao.animes.media_nota IS 'Nota media do anime de 0 a 10.';
+COMMENT ON COLUMN animeProducao.animes.genero_codigo IS 'FK da tabela genero_id';
+COMMENT ON COLUMN animeProducao.animes.nome IS 'Nome do anime.';
+COMMENT ON COLUMN animeProducao.animes.codigo_personagem IS 'Pk da tabela. Chave de identificação da tabela personagens.';
 
 
-CREATE UNIQUE INDEX anime_idx
- ON animes.anime
- ( anime_id );
-
- CREATE TABLE animes.personagens (
-                personagem_id INTEGER NOT NULL,
-                anime_ide INTEGER NOT NULL,
-                sexo VARCHAR(1) NOT NULL,
-                nome VARCHAR(30) NOT NULL,
-                CONSTRAINT pers_pk_id PRIMARY KEY (personagem_id)
+CREATE TABLE animeProducao.genero_id (
+                codigo_anime INTEGER NOT NULL,
+                genero_codigo INTEGER NOT NULL,
+                CONSTRAINT genero_id_pk PRIMARY KEY (codigo_anime, genero_codigo)
 );
-COMMENT ON TABLE animes.personagens IS 'Tabela que armazena as personagens principais dos animes.';
-COMMENT ON COLUMN animes.personagens.personagem_id IS 'Código identificador do personagem';
-COMMENT ON COLUMN animes.personagens.anime_ide IS 'Foreign Key do ID do anime a qual este personagem pertence.';
-COMMENT ON COLUMN animes.personagens.sexo IS 'Gênero do Personagem. Com constraint para ser apenas ''F'' ou ''M''.';
-COMMENT ON COLUMN animes.personagens.nome IS 'Nome do Personagem.';
+COMMENT ON TABLE animeProducao.genero_id IS 'tabela intermediaria do relacionamento N:N';
+COMMENT ON COLUMN animeProducao.genero_id.codigo_anime IS 'PFK com a tabela animes.';
+COMMENT ON COLUMN animeProducao.genero_id.genero_codigo IS 'PFK com a tabela generos';
 
 
-CREATE UNIQUE INDEX personagens_idx
- ON animes.personagens
- ( personagem_id );
-
-
-CREATE TABLE animes.autores (
-                autor_id INTEGER NOT NULL,
-                nome VARCHAR(50) NOT NULL,
-                data_nascimento DATE NOT NULL,
-                data_falecimento VARCHAR,
-                sexo VARCHAR(1) NOT NULL,
-                CONSTRAINT animes_pk_id PRIMARY KEY (autor_id)
+CREATE TABLE animeProducao.produtora (
+                NIF_produtora INTEGER NOT NULL,
+                roteirista  VARCHAR(50),
+                produtor VARCHAR(50),
+                editor VARCHAR(50),
+                CONSTRAINT produtora_pk PRIMARY KEY (NIF_produtora)
 );
-COMMENT ON TABLE animes.autores IS 'Tabela que armazena autores/criadores de animes';
-COMMENT ON COLUMN animes.autores.autor_id IS 'Código identificador do autor do anime.';
-COMMENT ON COLUMN animes.autores.nome IS 'Nome do autor';
-COMMENT ON COLUMN animes.autores.data_nascimento IS 'Data de nascimento do autor.';
-COMMENT ON COLUMN animes.autores.data_falecimento IS 'Data de falecimento do autor.
-Pode ser vazio pois o autor pode estar vivo';
-COMMENT ON COLUMN animes.autores.sexo IS 'Gênero do autor. Com constraint para ser apenas ''F'' ou ''M''';
+COMMENT ON TABLE animeProducao.produtora IS 'Tabela com os dados da produtora.';
+COMMENT ON COLUMN animeProducao.produtora.NIF_produtora IS 'Numero de Identificação Fiscal. Pk da tabela produtora. O equivalente a um CNPJ brasileiro.';
+COMMENT ON COLUMN animeProducao.produtora.roteirista  IS 'Nome do roteirista do anime.';
+COMMENT ON COLUMN animeProducao.produtora.produtor IS 'Nome do produtor do anime.';
+COMMENT ON COLUMN animeProducao.produtora.editor IS 'Nome do editor do anime.';
 
 
-CREATE UNIQUE INDEX autores_idx
- ON animes.autores
- ( autor_id );
-
-CREATE TABLE animes.estudio (
-                estudio_id INTEGER NOT NULL,
-                name VARCHAR(50) NOT NULL,
-                CONSTRAINT estudio_pk_id PRIMARY KEY (estudio_id)
+CREATE TABLE animeProducao.estudio (
+                NIF_estudio INTEGER NOT NULL,
+                designer VARCHAR(50) NOT NULL,
+                diretor_de_storyboard VARCHAR(50) NOT NULL,
+                diretor_de_animacao VARCHAR(50) NOT NULL,
+                diretor_de_fotografia VARCHAR(50) NOT NULL,
+                codigo_anime INTEGER NOT NULL,
+                NIF_produtora INTEGER NOT NULL,
+                CONSTRAINT estudio_pk PRIMARY KEY (NIF_estudio)
 );
-COMMENT ON COLUMN animes.estudio.estudio_id IS 'Código identificador do estudio';
-COMMENT ON COLUMN animes.estudio.name IS 'Nome do estudio';
+COMMENT ON TABLE animeProducao.estudio IS 'Tabela com os dados do estudio.';
+COMMENT ON COLUMN animeProducao.estudio.NIF_estudio IS 'Numero de Identificação Fiscal. Pk da tabela estudio. O equivalente a um CNPJ brasileiro.';
+COMMENT ON COLUMN animeProducao.estudio.designer IS 'Nome do designer do estudio.';
+COMMENT ON COLUMN animeProducao.estudio.diretor_de_storyboard IS 'Nome do diretor de storyboard.';
+COMMENT ON COLUMN animeProducao.estudio.diretor_de_animacao IS 'Nome do diretor de animação.';
+COMMENT ON COLUMN animeProducao.estudio.diretor_de_fotografia IS 'Nome do diretor de fotografia.';
+COMMENT ON COLUMN animeProducao.estudio.codigo_anime IS 'PK da tabela animes. Codigo de identificação da tabela animes.';
+COMMENT ON COLUMN animeProducao.estudio.NIF_produtora IS 'Numero de Identificação Fiscal. Pk da tabela produtora. O equivalente a um CNPJ brasileiro.';
 
 
-CREATE UNIQUE INDEX estudio_idx
- ON animes.estudio
- ( estudio_id );
-
-ALTER TABLE animes.anime ADD CONSTRAINT autores_anime_fk
-FOREIGN KEY (autor_id)
-REFERENCES animes.autores (autor_id)
+ALTER TABLE animeProducao.genero_id ADD CONSTRAINT genero_genero_id_fk
+FOREIGN KEY (genero_codigo)
+REFERENCES animeProducao.genero (genero_codigo)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE animes.anime ADD CONSTRAINT estudio_anime_fk
-FOREIGN KEY (estudio_id)
-REFERENCES animes.estudio (estudio_id)
+ALTER TABLE animeProducao.animes ADD CONSTRAINT personagens_animes_fk
+FOREIGN KEY (codigo_personagem)
+REFERENCES animeProducao.personagens (codigo_personagem)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE animes.personagens ADD CONSTRAINT anime_personagens_fk
-FOREIGN KEY (anime_ide)
-REFERENCES animes.anime (anime_id)
+ALTER TABLE animeProducao.genero_id ADD CONSTRAINT animes_genero_id_fk
+FOREIGN KEY (codigo_anime)
+REFERENCES animeProducao.animes (codigo_anime)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE;
+
+ALTER TABLE animeProducao.estudio ADD CONSTRAINT animes_estudio_fk
+FOREIGN KEY (codigo_anime)
+REFERENCES animeProducao.animes (codigo_anime)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE;
+
+ALTER TABLE animeProducao.estudio ADD CONSTRAINT produtora_estudio_fk
+FOREIGN KEY (NIF_produtora)
+REFERENCES animeProducao.produtora (NIF_produtora)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
