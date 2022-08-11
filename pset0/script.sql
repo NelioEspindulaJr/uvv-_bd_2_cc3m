@@ -32,8 +32,8 @@ CREATE DATABASE "animesDB"
     OWNER = administrator
     TEMPLATE = template0
     ENCODING = 'UTF8'
-    LC_COLLATE = 'Portuguese_Brazil.1252'
-    LC_CTYPE = 'Portuguese_Brazil.1252'
+    LC_COLLATE = 'pt-BR.UTF8'
+    LC_CTYPE = 'pt-BR.UTF8'
     TABLESPACE = pg_default
     CONNECTION LIMIT = -1;
 
