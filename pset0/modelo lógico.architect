@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architect-project version="1.0" appversion="1.0.9">
+ <project-name>anime</project-name>
+ <print-settings numCopies="1" zoom="1.0" pageNumbersPrinted="true" orientation="1" paperWidth="612.0" paperHeight="792.0" leftBorder="50.0" rightBorder="50.0" topBorder="50.0" bottomBorder="50.0" />
+ <project-data-sources>
+  <data-source id="DS0">
+   <property key="Logical" value="PlayPen Database" />
+  </data-source>
+ </project-data-sources>
+ <source-databases>
+ </source-databases>
+ <target-database id="ppdb" dbcs-ref="DS0">
+  <table id="TAB1" populated="true" UUID="dbb62673-7e96-4ee8-bffa-ea24a9a2da79" name="produtora" objectType="TABLE" physicalName="produtora" >
+   <remarks>Tabela com os dados da produtora.</remarks>
+   <folder id="FOLTAB11" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL2" populated="true" UUID="4bf09fa7-e322-415e-bc58-a339dbe60d01" autoIncrement="false" autoIncrementSequenceName="produtora_NIF_produtora_seq" defaultValue="" name="NIF_produtora" nullable="0" physicalName="NIF_produtora" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>Numero de Identificação Fiscal. Pk da tabela produtora. O equivalente a um CNPJ brasileiro.</remarks>
+    </column>
+    <column id="COL3" populated="true" UUID="5955986b-2eb7-4dda-9bf1-bd708fbb2897" autoIncrement="false" autoIncrementSequenceName="produtora_roteirista _seq" defaultValue="" name="roteirista " nullable="1" physicalName="roteirista " precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Nome do roteirista do anime.</remarks>
+    </column>
+    <column id="COL4" populated="true" UUID="74dcf61f-6f85-4d13-ab62-48d078403e82" autoIncrement="false" autoIncrementSequenceName="produtora_produtor_seq" defaultValue="" name="produtor" nullable="1" physicalName="produtor" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Nome do produtor do anime.</remarks>
+    </column>
+    <column id="COL5" populated="true" UUID="d1ee5906-8d8e-4ec2-8c57-5b1c62b13d90" autoIncrement="false" autoIncrementSequenceName="produtora_editor_seq" defaultValue="" name="editor" nullable="1" physicalName="editor" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Nome do editor do anime.</remarks>
+    </column>
+    <column id="COL6" populated="true" UUID="cb4e89d4-bfc2-445f-bfe3-425a53aa0286" autoIncrement="false" autoIncrementSequenceName="produtora_nome_produtora_seq" defaultValue="" name="nome_produtora" nullable="0" physicalName="nome_produtora" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>nome da produtora</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB13" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB12" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB14" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX7" populated="true" UUID="1425df5c-b25c-4732-adf1-1021de024587" clustered="false" name="produtora_pk" physicalName="produtora_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC8" populated="true" UUID="b91ba063-98f2-4938-ab8e-63b270bd7749" ascendingOrDescending="UNSPECIFIED" column-ref="COL2" name="NIF_produtora" physicalName="NIF_produtora" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB9" populated="true" UUID="50431231-fcf8-4957-8673-0962f14ab8e4" name="estudio" objectType="TABLE" physicalName="estudio" >
+   <remarks>Tabela com os dados do estudio.</remarks>
+   <folder id="FOLTAB91" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL10" populated="true" UUID="a5ecf3d0-0f76-4705-8d91-7ab6f9d549f2" autoIncrement="false" autoIncrementSequenceName="estudio_NIF_estudio_seq" defaultValue="" name="NIF_estudio" nullable="0" physicalName="NIF_estudio" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>Numero de Identificação Fiscal. Pk da tabela estudio. O equivalente a um CNPJ brasileiro.</remarks>
+    </column>
+    <column id="COL11" populated="true" UUID="54964305-4361-46c1-889e-6686e395e47b" autoIncrement="false" autoIncrementSequenceName="estudio_designer_seq" defaultValue="" name="designer" nullable="0" physicalName="designer" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Nome do designer do estudio.</remarks>
+    </column>
+    <column id="COL12" populated="true" UUID="ec45542d-a532-4559-a035-6e4b0a5c93eb" autoIncrement="false" autoIncrementSequenceName="estudio_storyboard_seq" defaultValue="" name="diretor_de_storyboard" nullable="0" physicalName="diretor_de_storyboard" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Nome do diretor de storyboard.</remarks>
+    </column>
+    <column id="COL13" populated="true" UUID="07820129-d989-4fcd-b574-44e5cbe14aae" autoIncrement="false" autoIncrementSequenceName="estudio_diretor_de_animacao_seq" defaultValue="" name="diretor_de_animacao" nullable="0" physicalName="diretor_de_animacao" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Nome do diretor de animação.</remarks>
+    </column>
+    <column id="COL14" populated="true" UUID="9577a2d5-8423-4a8a-9fca-6e28a1c3269c" autoIncrement="false" autoIncrementSequenceName="estudio_diretor_de_fotografia_seq" defaultValue="" name="diretor_de_fotografia" nullable="0" physicalName="diretor_de_fotografia" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Nome do diretor de fotografia.</remarks>
+    </column>
+    <column id="COL15" populated="true" UUID="4e082aba-b76d-4525-9edd-f05e13e68436" autoIncrement="false" autoIncrementSequenceName="animes_codigo_anime_seq" defaultValue="" name="codigo_anime" nullable="0" physicalName="codigo_anime" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>PK da tabela animes. Codigo de identificação da tabela animes.</remarks>
+    </column>
+    <column id="COL16" populated="true" UUID="2742258c-6080-4a80-8462-10ec1c1d3e37" autoIncrement="false" autoIncrementSequenceName="produtora_NIF_produtora_seq" defaultValue="" name="NIF_produtora" nullable="0" physicalName="NIF_produtora" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>Numero de Identificação Fiscal. Pk da tabela produtora. O equivalente a um CNPJ brasileiro.</remarks>
+    </column>
+    <column id="COL17" populated="true" UUID="6f2f275d-3790-4c90-abc2-e007ebef32a0" autoIncrement="false" autoIncrementSequenceName="estudio_nome_estudio_seq" defaultValue="" name="nome_estudio" nullable="0" physicalName="nome_estudio" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>nome do estdio</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB93" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB92" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB94" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX18" populated="true" UUID="86d8aaf3-aa19-45aa-b83f-d7fb2d1d1c5d" clustered="false" name="estudio_pk" physicalName="estudio_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC19" populated="true" UUID="be97fb31-147c-4677-8d42-07860e56b6ea" ascendingOrDescending="UNSPECIFIED" column-ref="COL10" name="NIF_estudio" physicalName="NIF_estudio" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB20" populated="true" UUID="04619d01-5641-414a-a391-b129f290bbb7" name="animes" objectType="TABLE" physicalName="animes" >
+   <remarks>Tabela que salva as informações dos animes</remarks>
+   <folder id="FOLTAB201" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL21" populated="true" UUID="3281a742-3a34-404e-bdac-d926af0988f5" autoIncrement="false" autoIncrementSequenceName="animes_codigo_anime_seq" defaultValue="" name="codigo_anime" nullable="0" physicalName="codigo_anime" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>PK da tabela animes. Codigo de identificação da tabela animes.</remarks>
+    </column>
+    <column id="COL22" populated="true" UUID="41295442-7475-4ea8-8f51-8a9a6becb391" autoIncrement="false" autoIncrementSequenceName="animes_total_episodios_seq" defaultValue="" name="total_episodios" nullable="0" physicalName="total_episodios" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>Numero total de episódios do anime.</remarks>
+    </column>
+    <column id="COL23" populated="true" UUID="45af937f-edb6-44a3-a26f-212f907cd7ef" autoIncrement="false" autoIncrementSequenceName="animes_obra_original_seq" defaultValue="" name="obra_original" nullable="0" physicalName="obra_original" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Material original do qual o anime foi adaptado.</remarks>
+    </column>
+    <column id="COL24" populated="true" UUID="1d6cffcc-1bb4-47bc-b9bd-d637b5d536df" autoIncrement="false" autoIncrementSequenceName="animes_data_lancamento_seq" defaultValue="" name="data_lancamento" nullable="0" physicalName="data_lancamento" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks>Data de estréia do anime.</remarks>
+    </column>
+    <column id="COL25" populated="true" UUID="e9fac761-fde1-4da3-87d0-447b21248082" autoIncrement="false" autoIncrementSequenceName="animes_media_nota_seq" defaultValue="" name="media_nota" nullable="0" physicalName="media_nota" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>Nota media do anime de 0 a 10.</remarks>
+    </column>
+    <column id="COL26" populated="true" UUID="6d054d81-65f7-4caa-8e9d-d58d15418695" autoIncrement="false" autoIncrementSequenceName="animes_genero_codigo_seq" defaultValue="" name="genero_codigo" nullable="0" physicalName="genero_codigo" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>FK da tabela genero_id</remarks>
+    </column>
+    <column id="COL27" populated="true" UUID="4bf64421-cf32-4d1e-b6cc-c6673ef98319" autoIncrement="false" autoIncrementSequenceName="animes_nome_seq" defaultValue="" name="nome" nullable="0" physicalName="nome" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Nome do anime.</remarks>
+    </column>
+    <column id="COL28" populated="true" UUID="378b61b3-9070-41c2-9c2e-49ba65389e5e" autoIncrement="false" autoIncrementSequenceName="personagens_codigo_personagem_seq" defaultValue="" name="codigo_personagem" nullable="0" physicalName="codigo_personagem" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>Pk da tabela. Chave de identificação da tabela personagens.</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB203" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB202" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB204" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX29" populated="true" UUID="46f29244-bf02-4b8e-807a-33b25f3fa4a9" clustered="false" name="animes_pk" physicalName="animes_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC30" populated="true" UUID="b887982c-c813-4ce6-92b6-15fc4d03d812" ascendingOrDescending="UNSPECIFIED" column-ref="COL21" name="codigo_anime" physicalName="codigo_anime" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB31" populated="true" UUID="ad003238-9909-40f5-a2b4-de1e6edb1ac0" name="personagens" objectType="TABLE" physicalName="personagens" >
+   <remarks>Tabela com as informações dos personagens.</remarks>
+   <folder id="FOLTAB311" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL32" populated="true" UUID="d31d81ea-7a62-4015-acd0-8c32c3165eb0" autoIncrement="false" autoIncrementSequenceName="personagens_codigo_personagem_seq" defaultValue="" name="codigo_personagem" nullable="0" physicalName="codigo_personagem" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>Pk da tabela. Chave de identificação da tabela personagens.</remarks>
+    </column>
+    <column id="COL33" populated="true" UUID="32dcec05-950c-4564-adcb-1b67cf154150" autoIncrement="false" autoIncrementSequenceName="personagens_nome_personagem_seq" defaultValue="" name="nome_personagem" nullable="0" physicalName="nome_personagem" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Nome do personagem.</remarks>
+    </column>
+    <column id="COL34" populated="true" UUID="863f859c-ed98-42ff-aa15-341516279f7a" autoIncrement="false" autoIncrementSequenceName="personagens_papel_seq" defaultValue="" name="papel" nullable="0" physicalName="papel" precision="13" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Diferencia personagens protagonistas de personagens suporte.</remarks>
+    </column>
+    <column id="COL35" populated="true" UUID="74cc265e-da0c-473c-a081-c17cffb6830f" autoIncrement="false" autoIncrementSequenceName="personagens_sexo_seq" defaultValue="" name="sexo" nullable="0" physicalName="sexo" precision="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>genero do personagem.</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB313" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB312" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB314" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX36" populated="true" UUID="f29f9d6a-da4e-403c-b1f6-ccea979c6b0e" clustered="false" name="personagens_pk" physicalName="personagens_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC37" populated="true" UUID="13b86a37-0d5f-47ea-8d87-cedf96a66e0a" ascendingOrDescending="UNSPECIFIED" column-ref="COL32" name="codigo_personagem" physicalName="codigo_personagem" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB38" populated="true" UUID="715ca0dd-af32-4ff1-b573-266636ddf218" name="genero" objectType="TABLE" physicalName="genero" >
+   <remarks>Tabela contendo os generos dos animes</remarks>
+   <folder id="FOLTAB381" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL39" populated="true" UUID="c703ad9c-48af-4279-8ff9-e533a42ae209" autoIncrement="false" autoIncrementSequenceName="genero_genero_codigo_seq" defaultValue="" name="genero_codigo" nullable="0" physicalName="genero_codigo" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>Codigo de identificação da tabela genero. PK da tabela.</remarks>
+    </column>
+    <column id="COL40" populated="true" UUID="edf55f77-cfc7-4dfe-b167-e8f47f82f2ac" autoIncrement="false" autoIncrementSequenceName="genero_genero_principal_seq" defaultValue="" name="genero_principal" nullable="0" physicalName="genero_principal" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Genero principal da obra.</remarks>
+    </column>
+    <column id="COL41" populated="true" UUID="9f0a4d13-4854-41b3-b90b-69c859385809" autoIncrement="false" autoIncrementSequenceName="genero_genero_secundario_seq" defaultValue="" name="genero_secundario" nullable="0" physicalName="genero_secundario" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Genero secundario do anime.</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB383" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB382" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB384" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX42" populated="true" UUID="16b4fb52-fb35-4c32-9998-d73d85f2bc33" clustered="false" name="genero_pk" physicalName="genero_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC43" populated="true" UUID="72b0d153-9591-4e26-9a54-e17459ec6fb2" ascendingOrDescending="UNSPECIFIED" column-ref="COL39" name="genero_codigo" physicalName="genero_codigo" />
+    </index>
+   </folder>
+  </table>
+  <relationships>
+   <relationship id="REL44" populated="true" UUID="e58a0c4a-83e5-4d3c-92af-5f561bd74d7b" deferrability="7" deleteRule="3" fk-table-ref="TAB9" fkCardinality="7" identifying="false" name="produtora_estudio_fk" physicalName="produtora_estudio_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP45" populated="true" UUID="d477b3cc-fdf1-445a-8842-212ac0484385" fk-column-ref="COL16" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
+   </relationship>
+   <relationship id="REL46" populated="true" UUID="16897747-08ac-4eda-ab62-bc343bc7dca3" deferrability="7" deleteRule="3" fk-table-ref="TAB9" fkCardinality="7" identifying="false" name="animes_estudio_fk" physicalName="animes_estudio_fk" pk-table-ref="TAB20" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP47" populated="true" UUID="bfd91fb7-b162-4481-972f-78d57c60bb68" fk-column-ref="COL15" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL21" />
+   </relationship>
+   <relationship id="REL48" populated="true" UUID="03785637-9cf7-48a6-8316-bd655955693f" deferrability="7" deleteRule="3" fk-table-ref="TAB20" fkCardinality="7" identifying="false" name="personagens_animes_fk" physicalName="personagens_animes_fk" pk-table-ref="TAB31" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP49" populated="true" UUID="6556331f-9ab7-4b82-a830-c343a697b514" fk-column-ref="COL28" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL32" />
+   </relationship>
+   <relationship id="REL50" populated="true" UUID="7d4e7a23-fece-4b5a-bb06-d84d77b1935b" deferrability="7" deleteRule="3" fk-table-ref="TAB20" fkCardinality="7" identifying="false" name="genero_animes_fk" physicalName="genero_animes_fk" pk-table-ref="TAB38" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP51" populated="true" UUID="ff58a723-cf4b-462f-832a-b320ae8cc5ca" fk-column-ref="COL26" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL39" />
+   </relationship>
+  </relationships>
+ </target-database>
+ <ddl-generator type="ca.sqlpower.architect.ddl.GenericDDLGenerator" allow-connection="true"> </ddl-generator>
+ <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
+ <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
+ <play-pen zoom="1.0" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+  <table-pane table-ref="TAB1" x="673" y="197" bgColor="0xbfd6ff" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB9" x="670" y="378" bgColor="0xfbdabb" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB20" x="255" y="388" bgColor="0xc8dccc" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB31" x="189" y="665" bgColor="0xf6bcbc" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB38" x="699" y="697" bgColor="0xc7d0df" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-link relationship-ref="REL48" pkConnection="0.7142857142857143" fkConnection="0.46689895470383275" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL46" pkConnection="0.8238993710691824" fkConnection="0.8661417322834646" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-link relationship-ref="REL44" pkConnection="0.5118110236220472" fkConnection="0.4809688581314879" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL50" pkConnection="0.24550898203592814" fkConnection="0.9714285714285714" rLineColor="0x2e3436" pkLabelText="" fkLabelText="" orientation="72"/>
+ </play-pen>
+ <critic-manager>
+  <critic-grouping platformType="Generic" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.PrimaryKeyCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.RelationshipMappingTypeCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.EmptyRelationshipCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.AlphaNumericNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.AlphaNumericSequenceNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SetDefaultOnColumnWithNoDefaultCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SetNullOnNonNullableColumnCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.DuplicateNameCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="DB2" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.DB2UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="H2" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.H2UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="HSQLDB" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.HSQLDBUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="MySQL" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLCommentCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLReservedWordsCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="Oracle" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OraclePhysicalNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OracleReservedWordsCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OracleUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="PostgreSQL" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.PostgreSQLReservedWordsCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServerUnsupportedFeaturesCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServerReservedWordsCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server 2000" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServer2000UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server 2005" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServer2005UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+ </critic-manager>
+ <profiles topNCount="10">
+  </profiles>
+  <olap>
+  </olap>
+  <olap-gui>
+  </olap-gui>
+</architect-project>
