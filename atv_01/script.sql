@@ -13,13 +13,6 @@ CREATE TABLE students (
     CONSTRAINT      students_ck_secured   CHECK (secured IN ('S','U')) -- ESSA CONSTRAINT IDENTIFICA 'S' COMO SECURED E 'U' COMO UNPROTECTED
 );
 
--- INSERINDO DOIS ESTUDANTES, UM UNPROTECTED E OUTRO SECURED:
-INSERT INTO students (name, secured) VALUES ('Nélio Junior', 'U');
-
-INSERT INTO students (name, secured) VALUES ('Abrantes Silva', 'S');
-
-commit;
-
 /*
 ** CRIE UMA SEQUENCE PARA PIPULAR O CÓDIGO NUMÉRICO
 ** DA TABELA ALUNOS. ISSO SERÁ FEITO VIA TRIGGER
@@ -38,6 +31,13 @@ FOR EACH ROW
 BEGIN
    :new.id  :=  students_id_seq.NEXTVAL;
 END;
+
+-- INSERINDO DOIS ESTUDANTES, UM UNPROTECTED E OUTRO SECURED:
+INSERT INTO students (name, secured) VALUES ('Nélio Junior', 'U');
+
+INSERT INTO students (name, secured) VALUES ('Abrantes Silva', 'S');
+
+commit;
 
 /*
 ** CRIAR TABELA USUÁRIOS COM UM CAMPO QUE INDIQUE SE O USUÁRIO É 'COMUM' OU 'ADMINISTRADOR'
@@ -65,7 +65,6 @@ commit;
 ** b) SE O USÁRIO FOR ADMINISTRADOR, ELE PODE ALTERAR MAS NAO PODE APAGAR O CADASTRO DO ALUNO
 */
 
-
 CREATE OR REPLACE TRIGGER students_bf_upd_del_trg 
 BEFORE UPDATE OR DELETE ON students
 DECLARE
@@ -80,13 +79,12 @@ BEGIN
     WHERE 
         username = V$SESSION;
         
-    IF :active_session = 'C' AND :old.secured = 'S' THEN
+    IF active_session = 'C' AND :old.secured = 'S' THEN
         RAISE_APLICATION_ERROR(-20001, 'You do not have permission to alter or update students table.');
-    ELSIF :active_session = 'A' AND :old.secured = 'S' AND UPDATING THEN
-        UPDATE students --CONTINUE HERE
+    ELSIF active_session = 'A' AND :old.secured = 'S' AND DELETING THEN
+        RAISE_APLICATION_ERROR(-20002, 'You can not delete a student!');
     END IF;
 END;
-
 
 
 
